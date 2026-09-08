@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06131a">
+<title>Udyogaa — Business Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="topbar">
+  <a class="brand" href="#dashboard" aria-label="Udyogaa dashboard"><img src="assets/logo.png" alt="Udyogaa logo"></a>
+  <nav class="topnav" aria-label="Primary navigation">
+    <button data-page="dashboard" data-i18n="overview">Overview</button>
+    <button data-page="inventory" data-i18n="inventory">Inventory</button>
+    <button data-page="experts" data-i18n="experts">Experts</button>
+    <button data-page="assistant" data-i18n="aiAssistant">AI Assistant</button>
+  </nav>
+  <div class="top-actions">
+    <div class="language-picker" title="Change language">
+      <span class="language-icon">文</span>
+      <select id="languageSelect" aria-label="Language selector">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="mr">मराठी</option>
+        <option value="gu">ગુજરાતી</option>
+        <option value="ta">தமிழ்</option>
+        <option value="te">తెలుగు</option>
+      </select>
+    </div>
+    <div class="live-pill"><i></i> <span data-i18n="live">Live</span></div>
+    <button class="profile" id="profileBtn"><span class="avatar" id="profileAvatar">MS</span><span class="profile-copy"><b data-i18n="msmeOwner">MSME Owner</b><small id="profileNameLabel">Shree Traders</small></span><span class="chevron">⌄</span></button>
+  </div>
+</header>
+
+<div class="app">
+<aside class="sidebar">
+  <div class="business-switch">
+    <small data-i18n="yourBusiness">YOUR BUSINESS</small>
+    <div class="business-row"><span class="business-mark">ST</span><div><strong>Shree Traders</strong><span data-i18n="retailMumbai">Retail • Mumbai</span></div></div>
+  </div>
+  <div class="nav-label" data-i18n="workspace">WORKSPACE</div>
+  <button class="side active" data-page="dashboard"><span class="nav-icon">⌂</span><span data-i18n="overview">Overview</span></button>
+  <button class="side" data-page="inventory"><span class="nav-icon">▦</span><span data-i18n="inventory">Inventory</span><b id="stockBadge">3</b></button>
+  <button class="side" data-page="sales"><span class="nav-icon">↗</span><span data-i18n="sales">Sales</span></button>
+  <button class="side" data-page="tasks"><span class="nav-icon">✓</span><span data-i18n="tasks">Tasks</span><b id="taskBadge">3</b></button>
+  <div class="nav-label secondary-label" data-i18n="network">NETWORK</div>
+  <button class="side" data-page="experts"><span class="nav-icon">♙</span><span data-i18n="expertNetwork">Expert Network</span></button>
+  <button class="side" data-page="assistant"><span class="nav-icon">✦</span><span data-i18n="udyogaaAI">Udyogaa AI</span></button>
+  <div class="sidebar-bottom">
+    <div class="health-head"><small data-i18n="businessHealth">BUSINESS HEALTH</small><span>82%</span></div>
+    <div class="healthbar"><i></i></div>
+    <strong data-i18n="lookingHealthy">Looking healthy</strong>
+    <p data-i18n="basedOnSignals">Based on your latest signals</p>
+  </div>
+</aside>
+
+<main id="main">
+<section class="page active" id="page-dashboard">
+  <div class="page-head">
+    <div><h1 data-i18n="goodMorning">Namaste, <span id="greetingName">Maithili</span> <span class="namaste" aria-label="Namaste">🙏</span></h1><p data-i18n="attentionToday">Here are the things that deserve your attention today.</p></div>
+    <button class="primary" id="addSaleBtn"><span>＋</span> <span data-i18n="recordSale">Record Sale</span></button>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card featured"><div class="stat-top"><span data-i18n="todaysSales">Today's sales</span><em class="up">↑ 12.4%</em></div><strong id="todaySales">₹18,450</strong><div class="stat-foot"><span data-i18n="vsYesterday">vs. ₹16,420 yesterday</span><span class="spark">▰▰▰▰▰▰</span></div></div>
+    <div class="stat-card"><div class="stat-top"><span data-i18n="orders">Orders</span><em class="up">↑ 3 <span data-i18n="today">today</span></em></div><strong id="orderCount">24</strong><div class="stat-foot"><span data-i18n="avgOrder">Average ₹769 / order</span><span class="mini-dot">●</span></div></div>
+    <div class="stat-card"><div class="stat-top"><span data-i18n="lowStock">Low-stock items</span><em class="warn" data-i18n="needsAttention">Needs attention</em></div><strong id="lowStockCount">3</strong><div class="stat-foot"><span data-i18n="watchingThem">Udyogaa is watching them</span><span class="alert-dot">!</span></div></div>
+    <div class="stat-card"><div class="stat-top"><span data-i18n="businessHealth">Business health</span><em class="up" data-i18n="healthy">Healthy</em></div><strong>82<span class="small">/100</span></strong><div class="health-mini"><i></i></div><div class="stat-foot"><span data-i18n="strongSignals">Strong operating signals</span></div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel priorities-panel">
+      <div class="panel-head"><div><div class="section-kicker" data-i18n="automatedSignals">AUTOMATED SIGNALS</div><h2 data-i18n="todaysPriorities">Today's priorities</h2><p data-i18n="foundAutomatically">Udyogaa found these automatically.</p></div><button class="text-btn" data-page="tasks"><span data-i18n="viewAll">View all</span> <span>→</span></button></div>
+      <div id="priorityList"></div>
+    </div>
+    <div class="panel chart-panel">
+      <div class="panel-head"><div><div class="section-kicker" data-i18n="performance">PERFORMANCE</div><h2 data-i18n="salesOverview">Sales overview</h2><p data-i18n="last7Days">Last 7 days</p></div><strong class="green trend">+12.4%</strong></div>
+      <div class="big-chart"><div class="y"><span>20k</span><span>15k</span><span>10k</span><span>5k</span><span>0</span></div><div class="chart-area" id="salesChart"></div></div>
+    </div>
+  </div>
+
+  <div class="panel opportunity">
+    <div class="opp-icon">✦</div><div><div class="section-kicker" data-i18n="udyogaaOpportunity">UDYOGAA OPPORTUNITY</div><h2 data-i18n="bundleInsight">Your customers are buying Product A + Product B together.</h2><p data-i18n="bundleQuestion">Would you like to create a bundle and test it for the next 7 days?</p></div>
+    <button class="primary compact" id="bundleBtn"><span data-i18n="createBundle">Create bundle</span> <span>→</span></button>
+  </div>
+</section>
+
+<section class="page" id="page-inventory">
+  <div class="page-head"><div><div class="eyebrow"><span></span><span data-i18n="operations">OPERATIONS</span></div><h1 data-i18n="inventory">Inventory</h1><p data-i18n="inventoryIntro">Udyogaa watches your stock patterns and highlights what needs attention.</p></div><button class="primary" id="addProductBtn"><span>＋</span> <span data-i18n="addProduct">Add Product</span></button></div>
+  <div class="panel"><div class="panel-head"><div><div class="section-kicker" data-i18n="stockControl">STOCK CONTROL</div><h2 data-i18n="stockOverview">Stock overview</h2><p id="inventoryHint">3 products need attention.</p></div><button class="text-btn" id="restockAllBtn"><span data-i18n="restockAll">Restock all low items</span> <span>→</span></button></div>
+    <div class="table-wrap"><table><thead><tr><th data-i18n="product">Product</th><th data-i18n="currentStock">Current stock</th><th data-i18n="dailySales">Daily sales</th><th data-i18n="estimatedDays">Estimated days</th><th data-i18n="status">Status</th><th data-i18n="action">Action</th></tr></thead><tbody id="inventoryTable"></tbody></table></div>
+  </div>
+</section>
+
+<section class="page" id="page-sales">
+  <div class="page-head"><div><div class="eyebrow"><span></span><span data-i18n="businessPerformance">BUSINESS PERFORMANCE</span></div><h1 data-i18n="sales">Sales</h1><p data-i18n="salesIntro">Record sales and watch your business data update.</p></div><button class="primary" id="salePageBtn"><span>＋</span> <span data-i18n="recordSale">Record Sale</span></button></div>
+  <div class="panel"><div class="panel-head"><div><div class="section-kicker" data-i18n="transactions">TRANSACTIONS</div><h2 data-i18n="recentSales">Recent sales</h2><p data-i18n="demoTransactions">Demo transactions</p></div><strong class="green" id="salesTotal">₹18,450 today</strong></div>
+  <div class="sales-list" id="salesList"></div></div>
+</section>
+
+<section class="page" id="page-tasks">
+  <div class="page-head"><div><div class="eyebrow"><span></span><span data-i18n="proactiveIntelligence">PROACTIVE INTELLIGENCE</span></div><h1 data-i18n="actionList">Your action list</h1><p data-i18n="actionIntro">Udyogaa turns business signals into understandable actions.</p></div></div>
+  <div class="task-board" id="taskBoard"></div>
+</section>
+
+<section class="page" id="page-experts">
+  <div class="page-head"><div><div class="eyebrow"><span></span><span data-i18n="humanInLoop">HUMAN-IN-THE-LOOP</span></div><h1 data-i18n="expertNetwork">Expert Network</h1><p data-i18n="expertIntro">When a decision needs specialised judgement, bring in a professional.</p></div></div>
+  <div class="expert-banner"><div class="expert-illustration">♙</div><div><div class="section-kicker" data-i18n="udyogaaPromise">THE UDYOGAA PROMISE</div><h2 data-i18n="aiRecommends">AI recommends. You decide. Experts help when needed.</h2><p data-i18n="expertBannerText">Choose a field and request guidance from a verified professional.</p></div></div>
+  <div class="expert-grid" id="expertGrid"></div>
+</section>
+
+<section class="page" id="page-assistant">
+  <div class="page-head"><div><div class="eyebrow"><span></span><span data-i18n="businessCompanion">YOUR BUSINESS COMPANION</span></div><h1 data-i18n="udyogaaAI">Udyogaa AI</h1><p data-i18n="assistantIntro">Ask questions about your business and get actionable guidance.</p></div></div>
+  <div class="assistant-wrap">
+    <div class="ai-header"><div class="ai-orb">✦</div><div><strong>Udyogaa AI</strong><span data-i18n="businessIntelligence">Business intelligence companion</span></div><span class="ai-online"><i></i> <span data-i18n="online">Online</span></span></div>
+    <div class="chat" id="chat"><div class="msg bot"><b>Udyogaa AI</b><p data-i18n="aiGreeting">Hi! I can help you understand today's business priorities. Try asking: <strong>"What should I do today?"</strong> or <strong>"What is low in stock?"</strong></p></div></div>
+    <div class="suggestions"><button data-suggestion="todayQuestion" data-i18n="whatDoToday">What should I do today?</button><button data-suggestion="stockQuestion" data-i18n="whatsLowStock">What's low in stock?</button><button data-suggestion="salesQuestion" data-i18n="howSales">How are my sales?</button></div>
+    <form class="chat-form" id="chatForm"><input id="chatInput" data-i18n-placeholder="askPlaceholder" placeholder="Ask Udyogaa anything about your business..." autocomplete="off"><button><span data-i18n="send">Send</span> <span>→</span></button></form>
+  </div>
+</section>
+</main>
+</div>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+<div class="toast-stack" id="toastStack"></div>
+<script src="script.js"></script>
+</body>
+</html>
